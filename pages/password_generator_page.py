@@ -13,11 +13,9 @@ class PasswordGeneratorPage:
         self.symbols_checkbox = page.locator("#option-symbols")
         self.symbols_label = page.locator("label[for='option-symbols']")
         self.generate_button = page.get_by_title("Generate password")
-        # self.copy_button = page.get_by_title("Copy Password")
         self.copy_button = page.locator('button[title="Copy Password"]')
         self.password_output = page.locator("#password")
-        self.copy_password_button = page.get_by_title("Copy Password")
-        self.symbols_set = symbols = set(r"! # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~")
+        self.symbols_set = set(r"! # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~")
 
     def set_password_length(self, length: int):
         self.password_length_input.fill(str(length))

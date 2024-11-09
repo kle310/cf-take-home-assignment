@@ -7,7 +7,6 @@ playwright install
 #### How to execute the tests:
 ```bash
 pytest
-pytest --headed
 ```
 
 # Test Plan
