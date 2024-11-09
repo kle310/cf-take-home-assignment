@@ -14,11 +14,11 @@ def test_generate_password_with_recommended_settings(password_generator_page):
     password_generator_page.toggle_numbers(True)
     password_generator_page.toggle_symbols(True)
     password = password_generator_page.get_generated_password()
-    assert len(password) == 12, "Password length should be 12."
-    assert any(char.isupper() for char in password), "Password should contain uppercase letters."
-    assert any(char.islower() for char in password), "Password should contain lowercase letters."
-    assert any(char.isdigit() for char in password), "Password should contain numbers."
-    assert any(char in password_generator_page.symbols_set for char in password), "Password should contain symbols."
+    assert len(password) == 12, "Password length should be 12"
+    assert any(char.isupper() for char in password), "Password should contain uppercase letters"
+    assert any(char.islower() for char in password), "Password should contain lowercase letters"
+    assert any(char.isdigit() for char in password), "Password should contain numbers"
+    assert any(char in password_generator_page.symbols_set for char in password), "Password should contain symbols"
 
 def test_able_to_toggle_options(password_generator_page):
     #the default state is True, True, False, False
@@ -29,21 +29,21 @@ def test_able_to_toggle_options(password_generator_page):
 
     password_generator_page.toggle_lowercase(False)
     password = password_generator_page.get_generated_password()
-    assert not any(char.islower() for char in password), "Unable to generate password without lowercase."
+    assert not any(char.islower() for char in password), "Unable to generate password without lowercase"
 
     password_generator_page.toggle_uppercase(False)
     password = password_generator_page.get_generated_password()
-    assert not any(char.isupper() for char in password), "Unable to generate password without uppercase."
+    assert not any(char.isupper() for char in password), "Unable to generate password without uppercase"
 
     password_generator_page.toggle_numbers(False)
     password = password_generator_page.get_generated_password()
-    assert not any(char.isdigit() for char in password), "Unable to generate password without numbers."
+    assert not any(char.isdigit() for char in password), "Unable to generate password without numbers"
 
     #need to enable at least one before turning off symbols
     password_generator_page.toggle_lowercase(True)
     password_generator_page.toggle_symbols(False)
     password = password_generator_page.get_generated_password()
-    assert not any(char in password_generator_page.symbols_set for char in password), "Unable to generate password without symbols."
+    assert not any(char in password_generator_page.symbols_set for char in password), "Unable to generate password without symbols"
 
 def test_password_regenerate(password_generator_page):
     old_password = password_generator_page.get_generated_password()
